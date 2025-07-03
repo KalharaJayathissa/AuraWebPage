@@ -2,15 +2,15 @@ import './Login.css';
 
 export default function Login() {
     return(
-        <div>
-            <div id ="box">
+        <div className='container'>
+            <div className ="box">
                 <div>
                     User name:   
-                    <input></input>
+                    <input type='text'></input>
                 </div>
                 <div>
                     Password   :   
-                    <input></input>
+                    <input type="password" />
                 </div>
                 <button>Log in</button>
             </div>

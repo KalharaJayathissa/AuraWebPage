@@ -5,15 +5,15 @@ import Login from "./pages/Login/Login";
 
 export default function App() {
   return (
-    <div>
-      {/* <nav> //this paer can be used as a navigation bar which appears in all the pages
+    // <div>
+      /* <nav> //this paer can be used as a navigation bar which appears in all the pages
         <Link to="/">Login</Link> | {" "}
-      </nav> */}
+      </nav> */
 
       <Routes>
         <Route path="/" element={<Login />} />
       </Routes>
 
-    </div>
+    /* </div> */
   );
 }

@@ -1,3 +1,21 @@
-.box {
-    padding: 50px;
+html,body {
+    margin:0;
 }
+
+
+.container {
+    display:flex;
+    /* padding: 50px; */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #464545;
+}
+
+.box {
+    padding: 20px;
+    background-color: aliceblue;
+    border-radius: 20px;
+}
+
+/* Style for the login box */
