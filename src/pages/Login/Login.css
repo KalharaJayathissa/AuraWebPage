@@ -22,20 +22,13 @@ body {
   text-align: center;
 }
 
-
-
 .inputs {
   margin: 2% auto;
   padding: 12px 30px;
   border-radius: 10px;
   width: 320px;
   border: 1.5px solid #ccc;
-  transition: cubic-bezier(
-    0.075,
-    0.82,
-    0.165,
-    1
-  ); /*find out what does this do*/
+  /* transition: border-color cubic-bezier(0.075, 0.82, 0.165, 1); find out what does this do */
 }
 
 #submit {
@@ -49,11 +42,12 @@ body {
   font-weight: 600;
   background: linear-gradient(45deg, #667eea, #764ba2);
   border-radius: 100px;
-  border:none;
+  border: none;
   transition: all 0.7s ease-in-out; /*looks like this isnt working. fix it later*/
 }
 
 #submit:hover {
-    background: linear-gradient(45deg, #5a67d8, #6b46c1);
-    cursor: pointer;
+  background: linear-gradient(45deg, #5a67d8, #6b46c1);
+  cursor: pointer;
+  transform: scale(1.05);
 }

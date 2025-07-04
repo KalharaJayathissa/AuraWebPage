@@ -3,7 +3,7 @@ import "./Login.css";
 
 export default function Login() {
   return (
-    <body
+    <div
       className="container"
       style={{
         background: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
@@ -35,6 +35,6 @@ export default function Login() {
         </div>
         <button id="submit">Log in</button>
       </form>
-    </body>
+    </div>
   );
 }
