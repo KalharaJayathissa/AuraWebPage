@@ -1,21 +1,59 @@
-html,body {
-    margin:0;
+html,
+body {
+  margin: 0;
+  /* background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%) !important;
+     looks like this can not ovrride the one from  index.css, so i added in thi in the jsx file it self */
 }
 
-
 .container {
-    display:flex;
-    /* padding: 50px; */
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #464545;
+  display: flex;
+  /* padding: 50px; */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #464545;
 }
 
 .box {
-    padding: 20px;
-    background-color: aliceblue;
-    border-radius: 20px;
+  padding: 20px;
+  background-color: aliceblue;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-/* Style for the login box */
+
+
+.inputs {
+  margin: 2% auto;
+  padding: 12px 30px;
+  border-radius: 10px;
+  width: 320px;
+  border: 1.5px solid #ccc;
+  transition: cubic-bezier(
+    0.075,
+    0.82,
+    0.165,
+    1
+  ); /*find out what does this do*/
+}
+
+#submit {
+  display: block;
+  justify-content: center;
+  margin: 5% auto;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-family: "Courier New";
+  color: rgb(241, 241, 90);
+  font-weight: 600;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 100px;
+  border:none;
+  transition: all 0.7s ease-in-out; /*looks like this isnt working. fix it later*/
+}
+
+#submit:hover {
+    background: linear-gradient(45deg, #5a67d8, #6b46c1);
+    cursor: pointer;
+}
