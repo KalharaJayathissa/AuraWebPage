@@ -22,7 +22,7 @@ const columns = [
   },
 ];
 
-//this dummy list to be replaced by fetched data later
+//this dummy list to be replaced by fetched data late
 
 const rows = [
   { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
