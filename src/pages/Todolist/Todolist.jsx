@@ -22,6 +22,8 @@ const columns = [
   },
 ];
 
+//this dummy list to be replaced by fetched data later
+
 const rows = [
   { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
   { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import { AlignHorizontalCenter } from "@mui/icons-material";
 import "./Login.css";
 
@@ -14,7 +14,11 @@ export default function Login() {
         <img
           src="./logo.png"
           height={175}
-          style={{ display: "block", margin: "auto" ,filter: "drop-shadow(0 0 5px rgba(102, 126, 234, 0.7))" }}
+          style={{
+            display: "block",
+            margin: "auto",
+            filter: "drop-shadow(0 0 5px rgba(102, 126, 234, 0.7))",
+          }}
         />
         <div>
           <input
@@ -34,7 +38,14 @@ export default function Login() {
             className="inputs"
           />
         </div>
-        <button id="submit">Log in</button>
+        <button
+          id="submit"
+          onClick={() => {
+            console.log("submit clicked!");
+          }}
+        >
+          Log in
+        </button>
       </form>
     </div>
   );
