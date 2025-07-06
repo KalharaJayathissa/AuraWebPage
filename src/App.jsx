@@ -1,7 +1,7 @@
 import { Routes, Route, Link} from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Todolist from "./pages/Todolist/Todolist";
-
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 export default function App() {
   return (
