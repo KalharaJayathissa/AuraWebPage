@@ -2,7 +2,8 @@ import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Todolist from "./pages/Todolist/Todolist";
-// import Dashboard from "./pages/Dashboard/Dashboard";
+import Dashboard from "./pages/Dashboard/Dashboard";
+
 
 export default function App() {
   return (
@@ -17,7 +18,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/Todolist" element={<Todolist />}></Route>
-        <Route path="/Dashboard" element={<Todolist />}></Route>
+        <Route path="/Dashboard" element={<Dashboard />}></Route>
       </Routes>
     </div>
   );
