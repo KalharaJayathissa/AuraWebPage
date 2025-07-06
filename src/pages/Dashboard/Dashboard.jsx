@@ -9,14 +9,14 @@ import { useState } from "react";
 export default function Dashboard() {
 
     function increment(val){
-        return val+1
+       return (val + 1);
     }
 
-  const [label, next] = useState(12);
+  const [label, nextvalueupdater] = useState(12);
   return (
     <div>
       <h1>show: {label}</h1>
-      <button onClick={increment(label)}> up </button>
+      <button onClick={nextvalueupdater(() => increment(label))}> up </button>
     </div>
   );
 }
