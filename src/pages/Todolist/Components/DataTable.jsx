@@ -1,12 +1,13 @@
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const columns = [
   { field: "id", headerName: "Task No#", width: 70 },
   { field: "module", headerName: "Module", width: 80 },
-  { field: "task", headerName: "Task", width: 150 ,
-    renderCell: (params) => (<div style={{whiteSpace:"normal", wordBreak:"break-word", lineHeight:1.4}}>
+  { field: "task", headerName: "Task", width: 1000 ,
+    renderCell: (params) => (<div style={{whiteSpace:"normal", wordBreak:"break-word", lineHeight:1.5}}>
       {params.value}
     </div>)
   },
@@ -14,7 +15,31 @@ const columns = [
     field: "weight",
     headerName: "Weight",
     type: "number",
-    width: 90,
+    width: 70,
+  },
+  {
+    field: "resources",
+    headerName: "Resources",
+    description: "Resource links",
+    sortable: false,
+    width: 160,
+    
+  },
+];
+
+const columnsMobile = [
+  { field: "id", headerName: "Task No#", width: 35 },
+  { field: "module", headerName: "Module", width: 80 },
+  { field: "task", headerName: "Task", width: 100 ,
+    renderCell: (params) => (<div style={{whiteSpace:"normal", wordBreak:"break-word", lineHeight:1.3}}>
+      {params.value}
+    </div>)
+  },
+  {
+    field: "weight",
+    headerName: "Weight",
+    type: "number",
+    width: 70,
   },
   {
     field: "resources",
@@ -38,11 +63,12 @@ const rows = [
 const paginationModel = { page: 0, pageSize: 5 };
 
 export default function DataTable() {
+  const isMobile = useMediaQuery("(max-width:600px)");
   return (
     <Paper sx={{ height: 400, width: "100%" }}>
       <DataGrid
         rows={rows}
-        columns={columns}
+        columns={isMobile ? columnsMobile : columns}
         initialState={{ pagination: { paginationModel } }}
         pageSizeOptions={[5, 10]}
         checkboxSelection
