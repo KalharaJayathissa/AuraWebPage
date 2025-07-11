@@ -13,8 +13,8 @@ const columns = [
     </div>)
   },
   {
-    field: "weight",
-    headerName: "Weight",
+    field: "priority",
+    headerName: "priority",
     type: "number",
     width: 70,
   },
@@ -37,8 +37,8 @@ const columnsMobile = [
     </div>)
   },
   {
-    field: "weight",
-    headerName: "Weight",
+    field: "priority",
+    headerName: "priority",
     type: "number",
     width: 70,
   },
@@ -55,9 +55,9 @@ const columnsMobile = [
 //this dummy list to be replaced by fetched data late
 
 const rows = [
-  { id: 1, module: "OS", task: "Lec", weight: 3.5 },
-  { id: 3, module: "DB", task: "Develop the front end of the website", weight: 4.5 },
-  { id: 2, module: "MA", task: "Do the tutorial", weight: 3.8 },
+  { id: 1, module: "OS", task: "Lec", priority: 3.5 },
+  { id: 3, module: "DB", task: "Develop the front end of the website", priority: 4.5 },
+  { id: 2, module: "MA", task: "Do the tutorial", priority: 3.8 },
 
 ];
 
