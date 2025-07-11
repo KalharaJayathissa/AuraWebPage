@@ -11,28 +11,27 @@ const columns = [
     </div>)
   },
   {
-    field: "wight",
+    field: "weight",
     headerName: "Weight",
     type: "number",
     width: 90,
   },
   {
-    field: "fullName",
-    headerName: "Full name",
-    description: "This column has a value getter and is not sortable.",
+    field: "resources",
+    headerName: "Resources",
+    description: "Resource links",
     sortable: false,
     width: 160,
-    valueGetter: (value, row) =>
-      `${row.firstNamee || ""} ${row.lastName || ""}`,
+    
   },
 ];
 
 //this dummy list to be replaced by fetched data late
 
 const rows = [
-  { id: 1, module: "OS", task: "Lec", age: 35 },
-  { id: 3, module: "DB", task: "Develop the front end of the website", age: 45 },
-  { id: 2, module: "MA", task: "Do the tutorial", age: 42 },
+  { id: 1, module: "OS", task: "Lec", weight: 3.5 },
+  { id: 3, module: "DB", task: "Develop the front end of the website", weight: 4.5 },
+  { id: 2, module: "MA", task: "Do the tutorial", weight: 3.8 },
 
 ];
 
