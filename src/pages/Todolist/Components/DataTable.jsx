@@ -4,7 +4,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const backend_link = "http://localhost:9999/api/nonexistent-endpoint";
+const backend_link = "http://localhost:8080/api/v1/gettasks";
 
 const columns = [
   { field: "id", headerName: "Task No#", width: 70 },
@@ -100,16 +100,18 @@ export default function DataTable() {
       .get(backend_link)
       .then((fetched_data) => setRows(fetched_data.data))
       .catch((error) => console.error("Failed fetching row data"));
-    setRows(rows_dummy);
+    // setRows(rows_dummy);
   }, []);
 
   return (
-    <Paper sx={{ height: 400, width: "100%" }}>
+    <Paper sx={{ height: 500, width: "100%" }}>
       <DataGrid
         rows={rows}
         columns={isMobile ? columnsMobile : columns}
-        initialState={{ pagination: { paginationModel } }}
-        pageSizeOptions={[5, 10]}
+        initialState={{
+          pagination: { paginationModel: { page: 0, pageSize: 7 } },
+        }}
+        pageSizeOptions={[7, 15]}
         checkboxSelection
         sx={{ border: 0 }}
       />

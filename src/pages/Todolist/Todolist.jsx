@@ -1,5 +1,6 @@
 import React from "react";
 import DataTable from "./Components/DataTable";
+import AddNewTask from "./Components/AddNewTask";
 //This is the to do list page
 
 export default function Todolist() {
@@ -11,6 +12,7 @@ export default function Todolist() {
       <div>
         <DataTable />
       </div>
+      <AddNewTask />
     </div>
   );
 }
