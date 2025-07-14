@@ -5,31 +5,85 @@ import TextField from "@mui/material/TextField";
 //import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import { useState } from "react";
+import axios from "axios";
+import { backendURL } from "../../../backEndURL";
 
+const apiUrl = backendURL + "/api/v1"
 
 export default function AddNewTask() {
+  const [inputData, setInputData] = useState({
+    module: "",
+    task: "",
+    resources: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    setInputData((prevInputData) => ({
+      ...prevInputData,
+      [name]: value,
+    }));
+  };
+
+  // const tempobj = {    //used for testing
+      
+  //       "module": "6without id",
+  //       "task": "test 2",
+  //       "resources": "successful"
+  //   };
+
+  const postDatatoTheBackend = (obj) => {
+    const apiSendUrl = apiUrl+"/savetask";
+    axios.post(apiSendUrl, obj );
+    console.log("posted!");
+  };
+  //console.log(inputData); //this is for testing
+
   return (
     <Box
       component="form"
-      sx={{ p: 2, bgcolor: 'background.paper', borderTop: '1px solid #e0e0e0'}}
+      sx={{ p: 2, bgcolor: "background.paper", borderTop: "1px solid #e0e0e0" }}
       noValidate
       autoComplete="off"
     >
       <h3>Add new task:</h3>
       <Grid container spacing={2} alignItems="center">
-        <Grid item xs={12} sm ={6} md={3}>
-          <TextField id="outlined-basic" label="Module" variant="outlined" />
+        <Grid item xs={12} sm={6} md={3}>
+          <TextField
+            id="filled-basic"
+            name="module"
+            label="Module"
+            variant="filled"
+            onChange={(e) => {
+              handleInputChange(e);
+            }}
+          />
         </Grid>
-        <Grid item xs={12} sm ={6} md={3}>
-          <TextField id="filled-basic" label="Task" variant="filled" fullWidth />
+        <Grid item xs={12} sm={6} md={3}>
+          <TextField
+            id="filled-basic"
+            name="task"
+            label="Task"
+            variant="filled"
+            fullWidth
+            onChange={(e) => {handleInputChange(e);}}
+          />
         </Grid>
-        <Grid item xs={12} sm ={6} md={3}>
-          <TextField id="standard-basic" label="Resources" variant="standard" />
+        <Grid item xs={12} sm={6} md={3}>
+          <TextField
+            id="filled-basic"
+            name="resources"
+            label="Resources"
+            variant="filled"
+            onChange={(e) => {handleInputChange(e);}}
+          />
         </Grid>
 
         {/* <Stack direction="row" spacing={8}> */}
 
-        <Button variant="contained" color="success">
+        <Button variant="contained" color="success" onClick={() => postDatatoTheBackend(inputData)}>
           Add task
         </Button>
 

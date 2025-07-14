@@ -3,8 +3,9 @@ import Paper from "@mui/material/Paper";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { backendURL } from "../../../backEndURL";
 
-const backend_link = "http://localhost:8080/api/v1/gettasks";
+const apiLink = backendURL + "/api/v1"
 
 const columns = [
   { field: "id", headerName: "Task No#", width: 70 },
@@ -95,11 +96,12 @@ export default function DataTable() {
   //fetching raw data from backend
   const [rows, setRows] = useState([]);
 
+  const getLink = apiLink+"/gettasks";
   useEffect(() => {
     axios
-      .get(backend_link)
+      .get(getLink)
       .then((fetched_data) => setRows(fetched_data.data))
-      .catch((error) => console.error("Failed fetching row data"));
+      .catch((error) => {console.error("Failed fetching row data"); console.log(getLink);})
     // setRows(rows_dummy);
   }, []);
 
