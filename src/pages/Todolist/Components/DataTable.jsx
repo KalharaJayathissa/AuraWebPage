@@ -1,11 +1,20 @@
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridDeleteIcon } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { backendURL } from "../../../backEndURL";
+import Button from "@mui/material/Button";
+import { color } from "framer-motion";
 
-const apiLink = backendURL + "/api/v1"
+const apiLink = backendURL + "/api/v1";
+
+const deleteTask = (id) => {
+  axios
+  .delete()
+  //.then
+}
+
 
 const columns = [
   { field: "id", headerName: "Task No#", width: 70 },
@@ -38,6 +47,22 @@ const columns = [
     description: "Resource links",
     sortable: false,
     width: 160,
+  },
+  {
+    field: "Actions",
+    headerName: "Actions",
+    description: "Delete and Update buttons",
+    sortable: false,
+    width:"120",
+    renderCell: (params) => (
+
+      <Button
+        variant="outlined"
+        color="red"
+        size="small"
+        startIcon={<GridDeleteIcon />}
+      >Delete</Button>
+    ),
   },
 ];
 
@@ -96,12 +121,15 @@ export default function DataTable() {
   //fetching raw data from backend
   const [rows, setRows] = useState([]);
 
-  const getLink = apiLink+"/gettasks";
+  const getLink = apiLink + "/gettasks";
   useEffect(() => {
     axios
       .get(getLink)
       .then((fetched_data) => setRows(fetched_data.data))
-      .catch((error) => {console.error("Failed fetching row data"); console.log(getLink);})
+      .catch((error) => {
+        console.error("Failed fetching row data");
+        console.log(getLink);
+      });
     // setRows(rows_dummy);
   }, []);
 
