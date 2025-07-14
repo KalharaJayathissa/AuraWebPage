@@ -3,6 +3,8 @@ import { Routes, Route, Link } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Todolist from "./pages/Todolist/Todolist";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Resources from "./pages/Resources/Resources";
+import InClassNotes from "./pages/InClassNotes/InClassNotes";
 
 
 export default function App() {
@@ -12,13 +14,17 @@ export default function App() {
         
         temporary nav bar :<Link to="/">Login</Link> |{" "}
         <Link to="/Todolist">To do list</Link> |
-        <Link to="/Dashboard">Dashboard</Link>
+        <Link to="/Dashboard">Dashboard</Link> |
+        <Link to ="/Resources">Resources</Link> |
+        <Link to ="/InclassNotes">InClassNotes</Link> |
       </nav>
 
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/Todolist" element={<Todolist />}></Route>
         <Route path="/Dashboard" element={<Dashboard />}></Route>
+        <Route path="/Resources" element={<Resources />}></Route>
+        <Route path="/InClassNotes" element={<InClassNotes />}></Route>
       </Routes>
     </div>
   );
