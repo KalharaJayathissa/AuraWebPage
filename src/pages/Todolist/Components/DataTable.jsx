@@ -9,16 +9,8 @@ import { color } from "framer-motion";
 
 const apiLink = backendURL + "/api/v1";
 
-const deleteTask = (id) => {
-  axios.delete(apiLink + "/deletetask/" + id)
-  .then(() => {console.log("deleted!!!");
-  
-  }  )
-  .catch(error => console.error("failed to dlete !"))
-  
-};
 
-const columns = [
+const columns = (deleteTask) => [
   { field: "id", headerName: "Task No#", width: 70 },
   { field: "module", headerName: "Module", width: 80 },
   {
@@ -27,11 +19,11 @@ const columns = [
     width: 1000,
     renderCell: (params) => (
       <div
-        style={{
-          whiteSpace: "normal",
-          wordBreak: "break-word",
-          lineHeight: 1.5,
-        }}
+      style={{
+        whiteSpace: "normal",
+        wordBreak: "break-word",
+        lineHeight: 1.5,
+      }}
       >
         {params.value}
       </div>
@@ -58,21 +50,22 @@ const columns = [
     width: "120",
     renderCell: (params) => (
       <Button
-        variant="outlined"
-        color="red"
-        size="small"
-        startIcon={<GridDeleteIcon />}
-        onClick={() => {
-          const to_del_id = params.id;
-          deleteTask(params.id);
-          console.log("Delete button clicked")
-        }}
+      variant="outlined"
+      color="red"
+      size="small"
+      startIcon={<GridDeleteIcon />}
+      onClick={() => {
+        const to_del_id = params.id;
+        deleteTask(params.id);
+        console.log("Delete button clicked")
+      }}
       >
         Delete
       </Button>
     ),
   },
 ];
+
 
 const columnsMobile = [
   { field: "id", headerName: "Task No#", width: 35 },
@@ -83,11 +76,11 @@ const columnsMobile = [
     width: 100,
     renderCell: (params) => (
       <div
-        style={{
-          whiteSpace: "normal",
-          wordBreak: "break-word",
-          lineHeight: 1.3,
-        }}
+      style={{
+        whiteSpace: "normal",
+        wordBreak: "break-word",
+        lineHeight: 1.3,
+      }}
       >
         {params.value}
       </div>
@@ -124,28 +117,41 @@ const rows_dummy = [
 const paginationModel = { page: 0, pageSize: 5 };
 
 export default function DataTable() {
-  const isMobile = useMediaQuery("(max-width:600px)");
 
+
+const deleteTask = (id) => {
+  axios.delete(apiLink + "/deletetask/" + id)
+  .then(() => {console.log("deleted!!!");
+  setRows((prevRows) => prevRows.filter((row) => row.id != id));
+  }  )
+  .catch(error => console.error("failed to dlete !",error))
+  
+};
+
+
+
+  const isMobile = useMediaQuery("(max-width:600px)");
+  
   //fetching raw data from backend
   const [rows, setRows] = useState([]);
-
+  
   const getLink = apiLink + "/gettasks";
   useEffect(() => {
     axios
-      .get(getLink)
-      .then((fetched_data) => setRows(fetched_data.data))
+    .get(getLink)
+    .then((fetched_data) => setRows(fetched_data.data))
       .catch((error) => {
         console.error("Failed fetching row data");
         console.log(getLink);
       });
-    // setRows(rows_dummy);
-  }, []);
-
-  return (
-    <Paper sx={{ height: 500, width: "100%" }}>
+      // setRows(rows_dummy);
+    }, []);
+    
+    return (
+      <Paper sx={{ height: 500, width: "100%" }}>
       <DataGrid
         rows={rows}
-        columns={isMobile ? columnsMobile : columns}
+        columns={isMobile ? columnsMobile : columns(deleteTask)}
         initialState={{
           pagination: { paginationModel: { page: 0, pageSize: 7 } },
         }}
