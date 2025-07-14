@@ -10,11 +10,13 @@ import { color } from "framer-motion";
 const apiLink = backendURL + "/api/v1";
 
 const deleteTask = (id) => {
-  axios
-  .delete()
-  //.then
-}
-
+  axios.delete(apiLink + "/deletetask/" + id)
+  .then(() => {console.log("deleted!!!");
+  
+  }  )
+  .catch(error => console.error("failed to dlete !"))
+  
+};
 
 const columns = [
   { field: "id", headerName: "Task No#", width: 70 },
@@ -53,15 +55,21 @@ const columns = [
     headerName: "Actions",
     description: "Delete and Update buttons",
     sortable: false,
-    width:"120",
+    width: "120",
     renderCell: (params) => (
-
       <Button
         variant="outlined"
         color="red"
         size="small"
         startIcon={<GridDeleteIcon />}
-      >Delete</Button>
+        onClick={() => {
+          const to_del_id = params.id;
+          deleteTask(params.id);
+          console.log("Delete button clicked")
+        }}
+      >
+        Delete
+      </Button>
     ),
   },
 ];
