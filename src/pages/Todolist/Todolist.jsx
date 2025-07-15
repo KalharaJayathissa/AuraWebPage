@@ -50,7 +50,7 @@ export default function Todolist() {
         <h1>Weekly To-Do List</h1>
       </div>
       <div style={{ padding: "35px" }}>
-        <DataTable rows={rows} />
+        <DataTable rows={rows} setRows={setRows} />
       </div>
       <div style={{ padding: "35px" }}>
         <AddNewTask postFunc={postDatatoTheBackend} />
