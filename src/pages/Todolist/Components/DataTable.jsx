@@ -73,7 +73,7 @@ const columns = (deleteTask) => [
   },
 ];
 
-const columnsMobile = [
+const columnsMobile = (deleteTask) => [
   { field: "id", headerName: "Task No#", width: 35 },
   { field: "module", headerName: "Module", width: 80 },
   {
@@ -168,7 +168,7 @@ export default function DataTable({ rows, setRows }) {
     <Paper sx={{ height: 500, width: "100%" }}>
       <DataGrid
         rows={rows}
-        columns={isMobile ? columnsMobile : columns(deleteTask)}
+        columns={isMobile ? columnsMobile(deleteTask) : columns(deleteTask)}
         initialState={{
           pagination: { paginationModel: { page: 0, pageSize: 7 } },
         }}
