@@ -41,12 +41,13 @@ const columns = (deleteTask) => [
     width: 160,
     renderCell: (params) => {
       //console.log(params.value);
-      if(params.value != ""){
-      return (
-        <a href={params.value} target="_blank">
-          Link
-        </a>
-      )};
+      if (params.value != "") {
+        return (
+          <a href={params.value} target="_blank">
+            Link
+          </a>
+        );
+      }
     },
   },
   {

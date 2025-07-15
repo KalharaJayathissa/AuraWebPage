@@ -37,7 +37,7 @@ export default function Todolist() {
   };
 
   return (
-    <div>
+    <div style={{background: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",}}>
       <div
         style={{
           display: "flex",
