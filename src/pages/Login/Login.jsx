@@ -1,15 +1,24 @@
 import * as React from "react";
 import { AlignHorizontalCenter } from "@mui/icons-material";
 import "./Login.css";
+import { Link } from "react-router-dom";
+import { color } from "framer-motion";
 
 export default function Login() {
   return (
+    //this might be unnecessery or not working
+    <div style={{msTouchAction:"pan-x pan-y"}}> 
+      
     <div
-      className="container"
-      style={{
-        background: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
-      }}
+    className="container"
+    style={{
+      background: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
+      flexDirection:"column",
+     
+    }}
     >
+      {/* temporary link */}
+      <div style={{padding:"100px"}}> <h1> Go to <Link to ="/Todolist">To-Do List</Link></h1></div> 
       <form className="box">
         <img
           src="./logo.png"
@@ -47,6 +56,8 @@ export default function Login() {
           Log in
         </button>
       </form>
+      <h3 style={{color:"red",}}> Login functionality is still under construction! <br /> please proceed to <Link to="/Todolist">To-Do List</Link></h3>
+    </div>
     </div>
   );
 }

@@ -19,11 +19,11 @@ const columns = (deleteTask) => [
     width: 1000,
     renderCell: (params) => (
       <div
-      style={{
-        whiteSpace: "normal",
-        wordBreak: "break-word",
-        lineHeight: 1.5,
-      }}
+      // style={{
+      //   whiteSpace: "normal",
+      //   wordBreak: "break-word",
+      //   lineHeight: 1,
+      // }}
       >
         {params.value}
       </div>
