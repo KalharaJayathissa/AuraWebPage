@@ -6,13 +6,23 @@ import AddNewTask from "./Components/AddNewTask";
 export default function Todolist() {
   return (
     <div>
-      <div>
-        <h2>Weekly To-Do List</h2>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          //fontFamily: "'Montserrat', 'Segoe UI', Arial, sans-serif",
+          color: "#4B0082",
+          marginBottom: "24px",
+        }}
+      >
+        <h1>Weekly To-Do List</h1>
       </div>
-      <div>
+      <div style={{ padding: "35px" }}>
         <DataTable />
       </div>
-      <AddNewTask />
+      <div style={{ padding: "35px" }}>
+        <AddNewTask />
+      </div>
     </div>
   );
 }
