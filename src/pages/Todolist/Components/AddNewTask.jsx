@@ -9,9 +9,8 @@ import { useState } from "react";
 import axios from "axios";
 import { backendURL } from "../../../backEndURL";
 
-const apiUrl = backendURL + "/api/v1"
 
-export default function AddNewTask() {
+export default function AddNewTask({postFunc}) {
   const [inputData, setInputData] = useState({
     module: "",
     task: "",
@@ -34,11 +33,7 @@ export default function AddNewTask() {
   //       "resources": "successful"
   //   };
 
-  const postDatatoTheBackend = (obj) => {
-    const apiSendUrl = apiUrl+"/savetask";
-    axios.post(apiSendUrl, obj );
-    console.log("posted!");
-  };
+
   //console.log(inputData); //this is for testing
 
   return (
@@ -83,7 +78,7 @@ export default function AddNewTask() {
 
         {/* <Stack direction="row" spacing={8}> */}
 
-        <Button variant="contained" color="success" onClick={() => postDatatoTheBackend(inputData)}>
+        <Button variant="contained" color="success" onClick={() => postFunc(inputData)}>
           Add task
         </Button>
 

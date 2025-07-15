@@ -116,7 +116,7 @@ const rows_dummy = [
 
 const paginationModel = { page: 0, pageSize: 5 };
 
-export default function DataTable() {
+export default function DataTable({rows}) {
 
 
 const deleteTask = (id) => {
@@ -132,20 +132,7 @@ const deleteTask = (id) => {
 
   const isMobile = useMediaQuery("(max-width:600px)");
   
-  //fetching raw data from backend
-  const [rows, setRows] = useState([]);
-  
-  const getLink = apiLink + "/gettasks";
-  useEffect(() => {
-    axios
-    .get(getLink)
-    .then((fetched_data) => setRows(fetched_data.data))
-      .catch((error) => {
-        console.error("Failed fetching row data");
-        console.log(getLink);
-      });
-      // setRows(rows_dummy);
-    }, []);
+
     
     return (
       <Paper sx={{ height: 500, width: "100%" }}>

@@ -1,9 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DataTable from "./Components/DataTable";
 import AddNewTask from "./Components/AddNewTask";
+import { backendURL } from "../../backEndURL";
+import axios from "axios";
 //This is the to do list page
 
+const apiLink = backendURL + "/api/v1";
+
 export default function Todolist() {
+  //fetching raw data from backend
+  const [rows, setRows] = useState([]);
+
+  const getLink = apiLink + "/gettasks";
+
+  const fetchTasksRows = () => {
+    axios
+      .get(getLink)
+      .then((fetched_data) => setRows(fetched_data.data))
+      .catch((error) => {
+        console.error("Failed fetching row data");
+        console.log(getLink);
+      });
+  };
+
+  useEffect(() => {
+    fetchTasksRows();
+    // setRows(rows_dummy);
+  }, []);
+
+  const postDatatoTheBackend = (obj) => {
+    const apiSendUrl = apiLink + "/savetask";
+    axios.post(apiSendUrl, obj).then(() => {
+      fetchTasksRows();
+    });
+    console.log("posted!");
+  };
+
   return (
     <div>
       <div
@@ -18,10 +50,10 @@ export default function Todolist() {
         <h1>Weekly To-Do List</h1>
       </div>
       <div style={{ padding: "35px" }}>
-        <DataTable />
+        <DataTable rows={rows} />
       </div>
       <div style={{ padding: "35px" }}>
-        <AddNewTask />
+        <AddNewTask postFunc={postDatatoTheBackend} />
       </div>
     </div>
   );
