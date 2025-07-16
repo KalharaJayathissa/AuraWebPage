@@ -38,7 +38,7 @@ export default function Todolist() {
 
   return (
     <div
-      style={{
+      style={{ minHeight:"100vh",
         background: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
       }}
     >
@@ -56,7 +56,7 @@ export default function Todolist() {
       <div style={{ padding: "35px" }}>
         <DataTable rows={rows} setRows={setRows} />
       </div>
-      <div style={{ padding: "35px" }}>
+      <div style={{ padding: "35px 35px 35px 35px" ,display:"flex" }}>
         <AddNewTask postFunc={postDatatoTheBackend} />
       </div>
     </div>

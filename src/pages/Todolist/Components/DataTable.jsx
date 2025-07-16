@@ -14,7 +14,7 @@ const columns = (deleteTask) => [
   {
     field: "task",
     headerName: "Task",
-    width: 1000,
+    flex: 3,
     renderCell: (params) => (
       <div
       // style={{
@@ -79,7 +79,7 @@ const columnsMobile = (deleteTask) => [
   {
     field: "task",
     headerName: "Task",
-    width: 100,
+    flex:3,
     renderCell: (params) => (
       <div
         style={{
