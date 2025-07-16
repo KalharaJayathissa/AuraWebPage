@@ -165,8 +165,9 @@ export default function DataTable({ rows, setRows }) {
   const isMobile = useMediaQuery("(max-width:600px)");
 
   return (
-    <Paper sx={{ height: 500, width: "100%" }}>
+    <Paper sx={{ height: 500, width: "100%",borderRadius:"20px" }}>
       <DataGrid
+       
         rows={rows}
         columns={isMobile ? columnsMobile(deleteTask) : columns(deleteTask)}
         initialState={{
@@ -174,7 +175,7 @@ export default function DataTable({ rows, setRows }) {
         }}
         pageSizeOptions={[7, 15]}
         checkboxSelection
-        sx={{ border: 0 }}
+        sx={{ border: 0 ,borderRadius:"20px"}}
       />
     </Paper>
   );

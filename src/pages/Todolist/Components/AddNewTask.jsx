@@ -1,4 +1,3 @@
-
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
@@ -7,9 +6,7 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import { useState } from "react";
 
-
-
-export default function AddNewTask({postFunc}) {
+export default function AddNewTask({ postFunc }) {
   const [inputData, setInputData] = useState({
     module: "",
     task: "",
@@ -26,19 +23,23 @@ export default function AddNewTask({postFunc}) {
   };
 
   // const tempobj = {    //used for testing
-      
+
   //       "module": "6without id",
   //       "task": "test 2",
   //       "resources": "successful"
   //   };
-
 
   //console.log(inputData); //this is for testing
 
   return (
     <Box
       component="form"
-      sx={{ p: 2, bgcolor: "background.paper", borderTop: "1px solid #e0e0e0" }}
+      sx={{
+        p: 2,
+        bgcolor: "background.paper",
+        borderTop: "1px solid #e0e0e0",
+        borderRadius: "20px",
+      }}
       noValidate
       autoComplete="off"
     >
@@ -62,7 +63,9 @@ export default function AddNewTask({postFunc}) {
             label="Task"
             variant="filled"
             fullWidth
-            onChange={(e) => {handleInputChange(e);}}
+            onChange={(e) => {
+              handleInputChange(e);
+            }}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
@@ -71,13 +74,19 @@ export default function AddNewTask({postFunc}) {
             name="resources"
             label="Resources"
             variant="filled"
-            onChange={(e) => {handleInputChange(e);}}
+            onChange={(e) => {
+              handleInputChange(e);
+            }}
           />
         </Grid>
 
         {/* <Stack direction="row" spacing={8}> */}
 
-        <Button variant="contained" color="success" onClick={() => postFunc(inputData)}>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={() => postFunc(inputData)}
+        >
           Add task
         </Button>
 

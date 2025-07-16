@@ -5,6 +5,7 @@ import Todolist from "./pages/Todolist/Todolist";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Resources from "./pages/Resources/Resources";
 import InClassNotes from "./pages/InClassNotes/InClassNotes";
+import Timetable from "./pages/Timetable/Timetable";
 
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
         <Link to="/Dashboard">Dashboard</Link> |
         <Link to ="/Resources">Resources</Link> |
         <Link to ="/InclassNotes">InClassNotes</Link> |
+        <Link to ="/timetablefc">Time-table</Link>
       </nav>
 
       <Routes>
@@ -25,6 +27,7 @@ export default function App() {
         <Route path="/Dashboard" element={<Dashboard />}></Route>
         <Route path="/Resources" element={<Resources />}></Route>
         <Route path="/InClassNotes" element={<InClassNotes />}></Route>
+        <Route path="/timetablefc" element={<Timetable />}></Route>
       </Routes>
     </div>
   );

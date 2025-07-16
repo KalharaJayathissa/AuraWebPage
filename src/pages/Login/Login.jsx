@@ -18,7 +18,8 @@ export default function Login() {
     }}
     >
       {/* temporary link */}
-      <div style={{padding:"100px"}}> <h1> Go to <Link to ="/Todolist">To-Do List</Link></h1></div> 
+      <div style={{padding:"100px"}}> <h1> Go to <Link to ="/Todolist">To-Do List</Link></h1>
+      <h1 style={{display:"flex",justifyContent:"center",}}>See <Link to ="/timetablefc">   Time-table</Link></h1></div> 
       <form className="box">
         <img
           src="./logo.png"
