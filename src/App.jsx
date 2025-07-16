@@ -7,18 +7,16 @@ import Resources from "./pages/Resources/Resources";
 import InClassNotes from "./pages/InClassNotes/InClassNotes";
 import Timetable from "./pages/Timetable/Timetable";
 
-
 export default function App() {
   return (
     <div>
       <nav>
-        
         temporary nav bar :<Link to="/">Login</Link> |{" "}
         <Link to="/Todolist">To do list</Link> |
         <Link to="/Dashboard">Dashboard</Link> |
-        <Link to ="/Resources">Resources</Link> |
-        <Link to ="/InclassNotes">InClassNotes</Link> |
-        <Link to ="/timetablefc">Time-table</Link>
+        <Link to="/Resources">Resources</Link> |
+        <Link to="/InclassNotes">InClassNotes</Link> |
+        <Link to="/timetablefc">Time-table</Link>
       </nav>
 
       <Routes>
@@ -29,6 +27,19 @@ export default function App() {
         <Route path="/InClassNotes" element={<InClassNotes />}></Route>
         <Route path="/timetablefc" element={<Timetable />}></Route>
       </Routes>
+
+      <footer
+        style={{
+          background: "linear-gradient(90deg, #a8edea 0%, #fed6e3 100%)",
+          letterSpacing: "3px",
+          fontWeight: "bold",
+          // marginTop: "40px",
+          textAlign: "center",
+          borderTop:"2px solid #4b0082"
+        }}
+      >
+        &copy;Aura study help .inc{" "}
+      </footer>
     </div>
   );
 }
