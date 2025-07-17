@@ -1,18 +1,18 @@
 
 import React from "react";
 import { useState } from "react";
+import DashboardLayoutSlots from "./Layout";
 
 export default function Dashboard() {
 
-    function increment(val){
-       return (val + 1);
-    }
 
   const [label, nextvalueupdater] = useState(12);
   return (
     <div>
-      <h1>show: {label}</h1>
-      <button onClick={() => nextvalueupdater(increment(label))}> up </button>
+  
+    <DashboardLayoutSlots />
+
+
     </div>
   );
 }
