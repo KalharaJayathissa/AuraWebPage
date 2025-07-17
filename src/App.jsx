@@ -4,8 +4,9 @@ import Login from "./pages/Login/Login";
 import Todolist from "./pages/Todolist/Todolist";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Resources from "./pages/Resources/Resources";
-import InClassNotes from "./pages/InClassNotes/InClassNotes";
+
 import Timetable from "./pages/Timetable/Timetable";
+import Share from "./pages/Share/Share";
 
 export default function App() {
   return (
@@ -15,7 +16,7 @@ export default function App() {
         <Link to="/Todolist">To do list</Link> |
         <Link to="/Dashboard">Dashboard</Link> |
         <Link to="/Resources">Resources</Link> |
-        <Link to="/InclassNotes">InClassNotes</Link> |
+        <Link to="/Share">Share</Link> |
         <Link to="/timetablefc">Time-table</Link>
       </nav>
 
@@ -24,7 +25,7 @@ export default function App() {
         <Route path="/Todolist" element={<Todolist />}></Route>
         <Route path="/Dashboard" element={<Dashboard />}></Route>
         <Route path="/Resources" element={<Resources />}></Route>
-        <Route path="/InClassNotes" element={<InClassNotes />}></Route>
+        <Route path="/Share" element={<Share />}></Route>
         <Route path="/timetablefc" element={<Timetable />}></Route>
       </Routes>
 
