@@ -49,7 +49,7 @@ export default function Todolist() {
   };
 
   const lightTheme = {
-    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    background: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
     containerBg: "rgba(255, 255, 255, 0.95)",
     cardBg: "rgba(255, 255, 255, 0.8)",
     textPrimary: "#2D3748",
@@ -61,7 +61,7 @@ export default function Todolist() {
 
   const darkTheme = {
     background:
-      "linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%)",
+      "linear-gradient(135deg, #0f2027 0%, #2c5364 50%, #232526 100%)",
     containerBg: "rgba(26, 32, 44, 0.95)",
     cardBg: "rgba(45, 55, 72, 0.8)",
     textPrimary: "#F7FAFC",
@@ -167,42 +167,64 @@ export default function Todolist() {
     <div style={containerStyle}>
       {/* Decorative Background Elements */}
       <div style={decorativeElementsStyle}>
+        {/* Stylish animated shapes for both light and dark modes */}
         <div
           style={{
             position: "absolute",
             top: "10%",
             left: "5%",
-            width: "100px",
-            height: "100px",
+            width: 120,
+            height: 120,
             borderRadius: "50%",
-            background: `linear-gradient(45deg, ${theme.accent}30, ${theme.accent}10)`,
-            animation: "float 6s ease-in-out infinite",
+            background: darkMode
+              ? "rgba(44,83,100,0.18)"
+              : "rgba(168,237,234,0.18)",
+            boxShadow: darkMode
+              ? "0 8px 32px #0f2027cc"
+              : "0 8px 32px #fed6e3cc",
+            filter: "blur(2px)",
+            animation: "float 7s ease-in-out infinite alternate",
+            zIndex: 0,
           }}
-        ></div>
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: "15%",
+            right: "8%",
+            width: 90,
+            height: 90,
+            borderRadius: "20% 80% 60% 40% / 40% 30% 70% 60%",
+            background: darkMode
+              ? "rgba(15,32,39,0.22)"
+              : "rgba(254,214,227,0.22)",
+            boxShadow: darkMode
+              ? "0 8px 32px #232526cc"
+              : "0 8px 32px #a8edeacc",
+            filter: "blur(1.5px)",
+            animation: "float2 9s ease-in-out infinite alternate-reverse",
+            zIndex: 0,
+          }}
+        />
         <div
           style={{
             position: "absolute",
             top: "60%",
-            right: "8%",
-            width: "150px",
-            height: "150px",
-            borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
-            background: `linear-gradient(45deg, ${theme.accent}20, ${theme.accent}05)`,
-            animation: "float 8s ease-in-out infinite reverse",
+            left: "20%",
+            width: 60,
+            height: 60,
+            borderRadius: "12px",
+            background: darkMode
+              ? "rgba(99,179,237,0.13)"
+              : "rgba(102,126,234,0.13)",
+            boxShadow: darkMode
+              ? "0 4px 16px #63B3ED55"
+              : "0 4px 16px #667eea55",
+            filter: "blur(1.5px)",
+            animation: "float3 6s ease-in-out infinite alternate",
+            zIndex: 0,
           }}
-        ></div>
-        <div
-          style={{
-            position: "absolute",
-            bottom: "20%",
-            left: "15%",
-            width: "80px",
-            height: "80px",
-            borderRadius: "50%",
-            background: `linear-gradient(45deg, ${theme.accent}25, ${theme.accent}08)`,
-            animation: "float 7s ease-in-out infinite",
-          }}
-        ></div>
+        />
       </div>
 
       <div style={mainContentStyle}>
@@ -318,14 +340,20 @@ export default function Todolist() {
             transform: translateY(-20px) rotate(5deg);
           }
         }
-
-        @keyframes pulse {
-          0%,
-          100% {
-            opacity: 0.6;
+        @keyframes float2 {
+          0% {
+            transform: translateY(0) scale(1);
           }
-          50% {
-            opacity: 1;
+          100% {
+            transform: translateY(25px) scale(0.95);
+          }
+        }
+        @keyframes float3 {
+          0% {
+            transform: translateX(0) scale(1);
+          }
+          100% {
+            transform: translateX(30px) scale(1.12);
           }
         }
 

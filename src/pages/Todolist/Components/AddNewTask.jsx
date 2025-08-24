@@ -12,7 +12,7 @@ export default function AddNewTask({ postFunc, theme }) {
     module: "",
     task: "",
     resources: "",
-    priority: "",
+    priority: "1",
   });
 
   const [showSuccess, setShowSuccess] = useState(false);
@@ -163,7 +163,7 @@ export default function AddNewTask({ postFunc, theme }) {
         component="form"
         sx={{
           p: 3,
-          background: `linear-gradient(135deg, ${theme.cardBg} 0%, ${theme.cardBg}90 100%)`,
+          background: `linear-gradient(135deg, ${theme.cardBg}CC 0%, ${theme.cardBg}99 100%)`, // more transparent
           border: `1px solid ${theme.border}`,
           borderRadius: "16px",
           backdropFilter: "blur(10px)",
@@ -263,36 +263,106 @@ export default function AddNewTask({ postFunc, theme }) {
             </Grid>
 
             <Grid item xs={12} sm={6} md={3}>
-              <TextField
-                name="priority"
-                label="⭐ Priority"
-                variant="filled"
-                fullWidth
-                // Use text type for consistent height
-                type="text"
-                inputProps={{
-                  inputMode: "numeric",
-                  pattern: "[0-9.]*",
-                  min: 0,
-                  max: 5,
-                  step: 0.1,
-                }}
-                value={inputData.priority}
-                onChange={handleInputChange}
-                error={errors.priority}
-                helperText={errors.priority ? "0-5 only" : "0-5 scale"}
-                placeholder="3.0"
-                InputProps={{
-                  sx: { height: 64, minHeight: 64 },
-                }}
-                sx={{
-                  "& .MuiFilledInput-root": {
-                    transition: "all 0.3s ease",
+              <Box sx={{ display: "flex", alignItems: "center", height: 64 }}>
+                <TextField
+                  name="priority"
+                  label="⭐ Priority"
+                  variant="filled"
+                  fullWidth
+                  type="text"
+                  inputProps={{
+                    inputMode: "numeric",
+                    pattern: "[0-9.]*",
+                    min: 0,
+                    max: 5,
+                    step: 0.5,
+                    style: { textAlign: "center" },
+                  }}
+                  value={inputData.priority}
+                  onChange={handleInputChange}
+                  error={errors.priority}
+                  // helperText={errors.priority ? "0-5 only" : "0-5 scale"}
+                  placeholder="1.0"
+                  InputProps={{
+                    sx: { height: 64, minHeight: 64 },
+                  }}
+                  sx={{
+                    "& .MuiFilledInput-root": {
+                      transition: "all 0.3s ease",
+                      height: 64,
+                      minHeight: 64,
+                    },
+                  }}
+                />
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    marginLeft: 1,
                     height: 64,
-                    minHeight: 64,
-                  },
-                }}
-              />
+                    justifyContent: "center",
+                  }}
+                >
+                  <button
+                    type="button"
+                    aria-label="Increase priority"
+                    style={{
+                      background: theme.accent,
+                      border: "none",
+                      borderRadius: "6px 6px 0 0",
+                      color: "#fff",
+                      width: 32,
+                      height: 28,
+                      cursor: "pointer",
+                      fontSize: 18,
+                      marginBottom: 1,
+                      boxShadow: `0 2px 8px ${theme.accent}22`,
+                      transition: "background 0.2s, transform 0.2s",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                    onClick={() => {
+                      setInputData((prev) => {
+                        let val = parseFloat(prev.priority) || 0;
+                        val = Math.min(5, Math.round((val + 0.1) * 10) / 10);
+                        return { ...prev, priority: val.toFixed(1) };
+                      });
+                    }}
+                  >
+                    ▲
+                  </button>
+                  <button
+                    type="button"
+                    aria-label="Decrease priority"
+                    style={{
+                      background: theme.accent,
+                      border: "none",
+                      borderRadius: "0 0 6px 6px",
+                      color: "#fff",
+                      width: 32,
+                      height: 28,
+                      cursor: "pointer",
+                      fontSize: 18,
+                      marginTop: 1,
+                      boxShadow: `0 2px 8px ${theme.accent}22`,
+                      transition: "background 0.2s, transform 0.2s",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                    onClick={() => {
+                      setInputData((prev) => {
+                        let val = parseFloat(prev.priority) || 0;
+                        val = Math.max(0, Math.round((val - 0.1) * 10) / 10);
+                        return { ...prev, priority: val.toFixed(1) };
+                      });
+                    }}
+                  >
+                    ▼
+                  </button>
+                </Box>
+              </Box>
             </Grid>
 
             {/* Button remains unchanged */}

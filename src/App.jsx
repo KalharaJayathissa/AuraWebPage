@@ -11,14 +11,7 @@ import Share from "./pages/Share/Share";
 export default function App() {
   return (
     <div>
-      <nav>
-        temporary nav bar :<Link to="/">Login</Link> |{" "}
-        <Link to="/Todolist">To do list</Link> |
-        <Link to="/Dashboard">Dashboard</Link> |
-        <Link to="/Resources">Resources</Link> |
-        <Link to="/Share">Share</Link> |
-        <Link to="/timetablefc">Time-table</Link>
-      </nav>
+
 
       <Routes>
         <Route path="/" element={<Login />} />
