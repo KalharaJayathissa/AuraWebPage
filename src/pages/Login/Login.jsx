@@ -1,9 +1,7 @@
-import * as React from "react";
-import { AlignHorizontalCenter } from "@mui/icons-material";
+
 import "./Login.css";
 import { Link } from "react-router-dom";
-import { color } from "framer-motion";
-import Dashboard from "../Dashboard/Dashboard";
+
 
 export default function Login() {
   return (
@@ -20,7 +18,7 @@ export default function Login() {
     >
       {/* temporary link */}
       <div style={{padding:"100px"}}> <h1> Go to <Link to ="/Dashboard">Dashboard</Link></h1>
-{/* <h1 style={{display:"flex",justifyContent:"center",}}>See <Link to ="/timetablefc">   Time-table</Link></h1></div>  */}
+      {/* <h1 style={{display:"flex",justifyContent:"center",}}>See <Link to ="/timetablefc">   Time-table</Link></h1>*/}</div>  
       <form className="box">
         <img
           src="./logo.png"
@@ -63,4 +61,3 @@ export default function Login() {
     </div>
   );
 }
-Todolist
